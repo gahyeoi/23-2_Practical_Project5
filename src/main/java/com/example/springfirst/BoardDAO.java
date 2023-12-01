@@ -46,10 +46,10 @@ public class BoardDAO {
     }
 
     public int updateBoard(BoardVO vo) {
-        String sql = "update BOARD2 set title=" + vo.getTitle() + ","
-                + " writer=" + "'" + vo.getWriter() + ",'"
-                + " content=" + "'" + vo.getContent() + ",'"
-                + " category=" + "'" + vo.getCategory() + ",'"
+        String sql = "update BOARD2 set title='" + vo.getTitle() + "',"
+                + " writer=" + "'" + vo.getWriter() + "',"
+                + " content=" + "'" + vo.getContent() + "',"
+                + " category=" + "'" + vo.getCategory() + "'"
                 + " where seq=" + vo.getSeq();
 
         return jdbcTemplate.update(sql);

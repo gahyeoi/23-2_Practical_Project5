@@ -2,7 +2,7 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <html>
 <head>
-    <title>List</title>
+    <title>자유게시판</title>
     <style>
         #list {
             font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
@@ -26,7 +26,7 @@
     </style>
 </head>
 <body>
-<h1>자유게시판</h1>
+<h1>게시글 목록</h1>
 <table id="list" width="90%">
     <tr>
         <th>ID</th>
@@ -48,8 +48,13 @@
             <td>${u.content}</td>
             <td>${u.regdate}</td>
             <td><a href="editform/${u.seq}">Edit</a></td>
-            <td><a href="javascript:delete_ok/${u.seq}">Delete</a></td>
+            <td><a href="deleteok/${u.seq}" onclick="return confirm('Are you sure you want to delete this post?')">Delete</a></td>
         </tr>
+    </c:forEach>
+</table>
+</br><a href="add">Add New Post</a>
+</body>
+</html>
     </c:forEach>
 </table>
 </br><a href="add">Add New Post</a>

@@ -55,8 +55,3 @@
 </br><a href="add">Add New Post</a>
 </body>
 </html>
-    </c:forEach>
-</table>
-</br><a href="add">Add New Post</a>
-</body>
-</html>

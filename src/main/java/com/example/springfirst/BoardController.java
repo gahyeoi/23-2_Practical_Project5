@@ -1,4 +1,4 @@
-package com.example.springfirst;
+package com.example.board;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -16,12 +16,12 @@ public class BoardController {
 
     @RequestMapping("")
     public String home(){
-        return "board/home";
+        return "/board/home";
     }
 
     @RequestMapping(value="/list", method= RequestMethod.GET)
     public String boardlist(Model model){
-        List<BoardVO> check = boardService.getBoardLists();
+        List<BoardVO> check = boardService.getBoardList();
         model.addAttribute("articles", check);
         return "/board/list";
     }
@@ -44,6 +44,8 @@ public class BoardController {
         model.addAttribute("board", boardVO);
         return "/board/editform";
     }
+
+
     @RequestMapping(value="/editok", method=RequestMethod.POST)
     public String editPostOK(BoardVO vo){
         if(boardService.updateBoard(vo)==0){
@@ -61,6 +63,6 @@ public class BoardController {
         } else {
             System.out.println("데이터 삭제 성공!");
         }
-        return "redirect:/list";
+        return "redirect:../list";
     }
 }
